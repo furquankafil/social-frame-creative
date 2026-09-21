@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://socialframecreative.in/sitemap.xml
