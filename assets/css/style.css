@@ -117,7 +117,6 @@ a{color:inherit}
 .showcase{position:relative;min-height:560px}
 .showcase-stage{position:relative;width:100%;max-width:560px;margin-inline:auto;height:600px}
 .ad-card{position:absolute;width:250px;border-radius:24px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 60px rgba(16,42,92,.12);border:1px solid #DCE8F7;transition:transform .35s ease,box-shadow .35s ease}
-.ad-card:hover{transform:translateY(-8px) rotate(0deg)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
 .ad-card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#EAF4FF,#FFFFFF)}
 .ad-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform .6s ease}
 .ad-card:hover img{transform:scale(1.08)}
@@ -134,19 +133,27 @@ a{color:inherit}
 .hand-note{position:absolute;right:4%;bottom:8px;z-index:6;font-family:var(--hand);font-size:1.7rem;color:var(--navy);transform:rotate(-5deg)}
 .hand-note svg{display:block;width:120px;height:30px;margin-left:auto}
 
-/* ---------- Hero showcase: CSS-first entrance (no IntersectionObserver) ----------
-   Final state lives on the elements (opacity:1 + base transforms), so the
-   cards render even with JavaScript disabled. Per-card rotation/offset are
-   mirrored into --card-rotation/--card-x so the keyframe `to` state matches. */
-.hero .showcase{opacity:1;animation:heroShowcaseIn 800ms cubic-bezier(.22,.61,.36,1) both}
-@keyframes heroShowcaseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.hero .ad-card{opacity:1;animation:heroCardIn 700ms cubic-bezier(.22,.61,.36,1) both}
-.hero .ad-1{--card-rotation:-7deg;--card-x:0;animation-delay:100ms}
-.hero .ad-2{--card-rotation:2deg;--card-x:-50%;animation-delay:200ms}
-.hero .ad-3{--card-rotation:7deg;--card-x:0;animation-delay:300ms}
-@keyframes heroCardIn{from{opacity:0;transform:translateX(var(--card-x,0)) translateY(28px) rotate(var(--card-rotation,0deg)) scale(.96)}to{opacity:1;transform:translateX(var(--card-x,0)) translateY(0) rotate(var(--card-rotation,0deg)) scale(1)}}
-@media (max-width:767px){.hero .showcase{animation-duration:650ms}}
-@media (prefers-reduced-motion:reduce){.hero .showcase,.hero .ad-card{animation:none;opacity:1}}
+/* ---------- Hero showcase: CSS-first entrance, zero JS visibility dependency ----------
+   Base opacity/visibility live on the elements, so cards render with
+   JavaScript disabled. Rotations are mirrored into --hero-rotate vars. */
+.hero-showcase{opacity:1;visibility:visible;transform:none;animation:heroShowcaseIn 800ms cubic-bezier(.22,.61,.36,1) both}
+.hero-showcase .ad-card{opacity:1;visibility:visible;animation:heroCardIn 700ms cubic-bezier(.22,.61,.36,1) both;will-change:transform,opacity}
+.hero-showcase .ad-1{--hero-rotate:-7deg;animation-name:heroCardLeftIn;animation-delay:80ms}
+.hero-showcase .ad-2{--hero-rotate:2deg;animation-name:heroCardCenterIn;animation-delay:180ms}
+.hero-showcase .ad-3{--hero-rotate:7deg;animation-name:heroCardRightIn;animation-delay:280ms}
+.ad-1{--hero-rotate:-7deg}
+.ad-2{--hero-rotate:2deg}
+.ad-3{--hero-rotate:7deg}
+@keyframes heroShowcaseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroCardIn{from{opacity:0;transform:translateY(28px) rotate(var(--hero-rotate,0deg)) scale(.96)}to{opacity:1;transform:translateY(0) rotate(var(--hero-rotate,0deg)) scale(1)}}
+@keyframes heroCardLeftIn{from{opacity:0;transform:translateY(28px) rotate(-7deg) scale(.96)}to{opacity:1;transform:translateY(0) rotate(-7deg) scale(1)}}
+@keyframes heroCardCenterIn{from{opacity:0;transform:translateX(-50%) translateY(28px) rotate(2deg) scale(.96)}to{opacity:1;transform:translateX(-50%) translateY(0) rotate(2deg) scale(1)}}
+@keyframes heroCardRightIn{from{opacity:0;transform:translateY(28px) rotate(7deg) scale(.96)}to{opacity:1;transform:translateY(0) rotate(7deg) scale(1)}}
+.hero-showcase .ad-1:hover{transform:translateY(-7px) rotate(-7deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+.hero-showcase .ad-2:hover{transform:translateX(-50%) translateY(-7px) rotate(2deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+.hero-showcase .ad-3:hover{transform:translateY(-7px) rotate(7deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+@media (max-width:767px){.hero-showcase{animation-duration:650ms}}
+@media (prefers-reduced-motion:reduce){.hero-showcase,.hero-showcase .ad-card{animation:none!important;opacity:1!important;visibility:visible!important}.hero-showcase .ad-1,.hero-showcase .ad-3{transform:none!important}}
 
 /* ---------- Trust strip ---------- */
 .trust{border-block:1px solid var(--border-soft);background:#fff;padding:2rem 0 2.2rem;text-align:center}
