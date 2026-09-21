@@ -242,8 +242,6 @@ footer h4{color:#fff;font-size:.8rem;letter-spacing:.16em;text-transform:upperca
 .foot-contact{font-size:.92rem;line-height:1.8}
 .foot-contact a{color:#fff;text-decoration:none;font-weight:600}
 .foot-contact a:hover{text-decoration:underline}
-.insta{display:inline-flex;align-items:center;gap:.55rem;margin-top:.8rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.6rem 1rem;border-radius:999px;color:#fff!important;text-decoration:none!important;font-size:.86rem}
-.insta:hover{background:rgba(255,255,255,.2)}
 .foot-bar{border-top:1px solid rgba(255,255,255,.14);padding:1.2rem 0;display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:space-between;font-size:.84rem;color:rgba(255,255,255,.55)}
 
 /* ---------- Reveal ---------- */
