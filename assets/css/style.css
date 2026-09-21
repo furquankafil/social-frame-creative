@@ -116,9 +116,9 @@ a{color:inherit}
 /* Hero showcase */
 .showcase{position:relative;min-height:560px}
 .showcase-stage{position:relative;width:100%;max-width:560px;margin-inline:auto;height:600px}
-.ad-card{position:absolute;width:250px;border-radius:20px;overflow:hidden;background:#0f2547;box-shadow:0 28px 60px -18px rgba(16,42,92,.42);border:1px solid rgba(255,255,255,.25);transition:transform .35s ease,box-shadow .35s ease}
-.ad-card:hover{transform:translateY(-8px) rotate(0deg)!important;box-shadow:0 36px 70px -18px rgba(16,42,92,.5);z-index:9}
-.ad-card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#274b8f,#0f2547)}
+.ad-card{position:absolute;width:250px;border-radius:24px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 60px rgba(16,42,92,.12);border:1px solid #DCE8F7;transition:transform .35s ease,box-shadow .35s ease}
+.ad-card:hover{transform:translateY(-8px) rotate(0deg)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+.ad-card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(145deg,#EAF4FF,#FFFFFF)}
 .ad-card img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform .6s ease}
 .ad-card:hover img{transform:scale(1.08)}
 .ad-card .cap{position:absolute;inset:auto 0 0 0;padding:1rem .95rem 1rem;color:#fff;background:linear-gradient(transparent,rgba(5,15,35,.82))}
@@ -286,7 +286,7 @@ footer h4{color:#fff;font-size:.8rem;letter-spacing:.16em;text-transform:upperca
   .hero h1{font-size:clamp(2.1rem,9.5vw,2.7rem)}
   .hero-ctas .btn{flex:1 1 100%}
   .showcase-stage{height:500px;max-width:400px}
-  .ad-card{width:200px;border-radius:16px}
+  .ad-card{width:200px;border-radius:24px}
   .ad-2{width:212px}
   .ad-1{left:-4px;top:70px}
   .ad-3{right:-4px;top:110px}
