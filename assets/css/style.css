@@ -116,16 +116,16 @@ a{color:inherit}
 /* Hero showcase */
 .showcase{position:relative;min-height:560px}
 .showcase-stage{position:relative;width:100%;max-width:560px;margin-inline:auto;height:600px}
-.ad-card{position:absolute;width:250px;border-radius:24px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 60px rgba(16,42,92,.12);border:1px solid #DCE8F7;transition:transform .35s ease,box-shadow .35s ease}
-.ad-card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#EAF4FF,#FFFFFF)}
-.ad-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform .6s ease}
-.ad-card:hover img{transform:scale(1.08)}
-.ad-card .cap{position:absolute;inset:auto 0 0 0;z-index:2;padding:1rem .95rem 1rem;color:#fff;background:linear-gradient(transparent,rgba(5,15,35,.82))}
-.ad-card .cap small{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:.35rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:.22rem .55rem;border-radius:99px}
-.ad-card .cap strong{display:block;font-size:1.02rem;line-height:1.25;letter-spacing:-.01em}
-.ad-1{left:0;top:56px;transform:rotate(-7deg);z-index:2}
-.ad-2{left:50%;top:0;transform:translateX(-50%) rotate(2deg);z-index:3;width:264px;border-width:2px}
-.ad-3{right:0;top:96px;transform:rotate(7deg);z-index:2}
+.show-card{position:absolute;width:250px;border-radius:24px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 60px rgba(16,42,92,.12);border:1px solid #DCE8F7;transition:transform .35s ease,box-shadow .35s ease}
+.show-card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#EAF4FF,#FFFFFF)}
+.show-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform .6s ease}
+.show-card:hover img{transform:scale(1.08)}
+.show-card .cap{position:absolute;inset:auto 0 0 0;z-index:2;padding:1rem .95rem 1rem;color:#fff;background:linear-gradient(transparent,rgba(5,15,35,.82))}
+.show-card .cap small{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:.35rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:.22rem .55rem;border-radius:99px}
+.show-card .cap strong{display:block;font-size:1.02rem;line-height:1.25;letter-spacing:-.01em}
+.show-1{left:0;top:56px;transform:rotate(-7deg);z-index:2}
+.show-2{left:50%;top:0;transform:translateX(-50%) rotate(2deg);z-index:3;width:264px;border-width:2px}
+.show-3{right:0;top:96px;transform:rotate(7deg);z-index:2}
 .perf-badge{position:absolute;left:6%;bottom:64px;z-index:5;background:var(--blue);color:#fff;border-radius:16px;padding:.8rem 1.05rem;box-shadow:var(--shadow-blue);transform:rotate(-4deg);border:1px solid rgba(255,255,255,.35)}
 .perf-badge b{display:block;font-size:1.5rem;line-height:1;letter-spacing:-.02em}
 .perf-badge span{font-size:.78rem;font-weight:600;opacity:.95}
@@ -137,20 +137,20 @@ a{color:inherit}
    No .rv / IntersectionObserver dependency. Final states are hardcoded in
    each card keyframe, so removing animation can never hide content. */
 .hero-showcase{position:relative;display:block!important;visibility:visible!important;opacity:1!important;min-width:0;min-height:560px;z-index:10}
-.hero-showcase .ad-card{display:block!important;visibility:visible!important;opacity:1!important;will-change:transform,opacity;animation-duration:700ms;animation-fill-mode:both;animation-timing-function:cubic-bezier(.22,.61,.36,1)}
-.hero-showcase .ad-1{animation-name:heroCardLeftInFinal;animation-delay:80ms}
-.hero-showcase .ad-2{animation-name:heroCardCenterInFinal;animation-delay:180ms}
-.hero-showcase .ad-3{animation-name:heroCardRightInFinal;animation-delay:280ms}
+.hero-showcase .show-card{display:block!important;visibility:visible!important;opacity:1!important;will-change:transform,opacity;animation-duration:700ms;animation-fill-mode:both;animation-timing-function:cubic-bezier(.22,.61,.36,1)}
+.hero-showcase .show-1{animation-name:heroCardLeftInFinal;animation-delay:80ms}
+.hero-showcase .show-2{animation-name:heroCardCenterInFinal;animation-delay:180ms}
+.hero-showcase .show-3{animation-name:heroCardRightInFinal;animation-delay:280ms}
 @keyframes heroCardLeftInFinal{from{opacity:0;transform:translateY(26px) rotate(-7deg) scale(.96)}to{opacity:1;transform:translateY(0) rotate(-7deg) scale(1)}}
 @keyframes heroCardCenterInFinal{from{opacity:0;transform:translateX(-50%) translateY(26px) rotate(2deg) scale(.96)}to{opacity:1;transform:translateX(-50%) translateY(0) rotate(2deg) scale(1)}}
 @keyframes heroCardRightInFinal{from{opacity:0;transform:translateY(26px) rotate(7deg) scale(.96)}to{opacity:1;transform:translateY(0) rotate(7deg) scale(1)}}
-.hero-showcase .ad-1:hover{transform:translateY(-6px) rotate(-7deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
-.hero-showcase .ad-2:hover{transform:translateX(-50%) translateY(-6px) rotate(2deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
-.hero-showcase .ad-3:hover{transform:translateY(-6px) rotate(7deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
-.hero-showcase .ad-card .ph{position:relative;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,#EAF4FF,#FFFFFF)}
-.hero-showcase .ad-card img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;opacity:1!important;visibility:visible!important}
-@media (min-width:1081px){.hero-showcase{display:block!important;position:relative!important;visibility:visible!important;opacity:1!important;z-index:10!important}.hero-showcase .showcase-stage{display:block!important;position:relative!important;visibility:visible!important;opacity:1!important;width:100%!important;max-width:560px!important;height:600px!important;margin-inline:auto!important}.hero-showcase .ad-card{display:block!important;visibility:visible!important;opacity:1!important}}
-@media (prefers-reduced-motion:reduce){.hero-showcase,.hero-showcase .ad-card{animation:none!important;opacity:1!important;visibility:visible!important}.hero-showcase .ad-1{transform:rotate(-7deg)!important}.hero-showcase .ad-2{transform:translateX(-50%) rotate(2deg)!important}.hero-showcase .ad-3{transform:rotate(7deg)!important}}
+.hero-showcase .show-1:hover{transform:translateY(-6px) rotate(-7deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+.hero-showcase .show-2:hover{transform:translateX(-50%) translateY(-6px) rotate(2deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+.hero-showcase .show-3:hover{transform:translateY(-6px) rotate(7deg) scale(1.01)!important;box-shadow:0 32px 70px rgba(16,42,92,.18);z-index:9}
+.hero-showcase .show-card .ph{position:relative;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,#EAF4FF,#FFFFFF)}
+.hero-showcase .show-card img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;opacity:1!important;visibility:visible!important}
+@media (min-width:1081px){.hero-showcase{display:block!important;position:relative!important;visibility:visible!important;opacity:1!important;z-index:10!important}.hero-showcase .showcase-stage{display:block!important;position:relative!important;visibility:visible!important;opacity:1!important;width:100%!important;max-width:560px!important;height:600px!important;margin-inline:auto!important}.hero-showcase .show-card{display:block!important;visibility:visible!important;opacity:1!important}}
+@media (prefers-reduced-motion:reduce){.hero-showcase,.hero-showcase .show-card{animation:none!important;opacity:1!important;visibility:visible!important}.hero-showcase .show-1{transform:rotate(-7deg)!important}.hero-showcase .show-2{transform:translateX(-50%) rotate(2deg)!important}.hero-showcase .show-3{transform:rotate(7deg)!important}}
 
 /* ---------- Trust strip ---------- */
 .trust{border-block:1px solid var(--border-soft);background:#fff;padding:2rem 0 2.2rem;text-align:center}
@@ -304,10 +304,10 @@ footer h4{color:#fff;font-size:.8rem;letter-spacing:.16em;text-transform:upperca
   .hero h1{font-size:clamp(2.1rem,9.5vw,2.7rem)}
   .hero-ctas .btn{flex:1 1 100%}
   .showcase-stage{height:500px;max-width:400px}
-  .ad-card{width:200px;border-radius:24px}
-  .ad-2{width:212px}
-  .ad-1{left:-4px;top:70px}
-  .ad-3{right:-4px;top:110px}
+  .show-card{width:200px;border-radius:24px}
+  .show-2{width:212px}
+  .show-1{left:-4px;top:70px}
+  .show-3{right:-4px;top:110px}
   .perf-badge{left:0;bottom:56px;padding:.65rem .85rem}
   .perf-badge b{font-size:1.25rem}
   .hand-note{font-size:1.35rem;bottom:0}
